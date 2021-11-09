@@ -1,0 +1,24 @@
+.text {
+  position: absolute;
+  color: white;
+  top: 10%;
+  left: 5%;
+}
+
+.home-title {
+  font-size: 3.5rem;
+}
+
+.home-desc {
+  font-size: 1.25rem;
+  width: 30%;
+}
+
+.home-rating {
+  font-size: 1rem;
+}
+
+.home-image {
+  width: 100%;
+  height: 100%;
+}
