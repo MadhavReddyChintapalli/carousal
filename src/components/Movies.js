@@ -3,19 +3,25 @@ import './Movies.css';
 import movies from '../data/ProgrammingAssignment-Data.json';
 
 const Movies = props => {
-  const [slideNumber, setSlideNumber] = useState(0);
+  const [slideNumber, setSlideNumber] = useState(1);
+  const [currentPosition, setCurrentPosition] = useState(0);
   const moviesRef = useRef();
 
   const handleClick = direction => {
-    let distance = moviesRef.current.getBoundingClientRect().x;
-    console.log(distance);
-    if (direction === 'left' && slideNumber > 0) {
+    if (direction === 'left' && slideNumber > 1) {
       setSlideNumber(slideNumber - 1);
-      moviesRef.current.style.transform = `translateX(${300 + distance}px)`;
+      moviesRef.current.style.transform = `translateX(${
+        300 + currentPosition
+      }px)`;
+      setCurrentPosition(currentPosition + 300);
     }
-    if (direction === 'right' && slideNumber < 15) {
+    if (direction === 'right' && slideNumber < 16) {
       setSlideNumber(slideNumber + 1);
-      moviesRef.current.style.transform = `translateX(${-300 + distance}px)`;
+      setCurrentPosition(-300 * slideNumber);
+
+      moviesRef.current.style.transform = `translateX(${-300 * slideNumber}px)`;
+      console.log(slideNumber);
+      console.log(currentPosition);
     }
   };
   return (
