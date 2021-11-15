@@ -21,7 +21,7 @@ const Movies = props => {
 
       moviesRef.current.style.transform = `translateX(${-300 * slideNumber}px)`;
       console.log(slideNumber);
-      console.log(currentPosition);
+      // console.log(currentPosition);
     }
   };
   return (
@@ -39,7 +39,7 @@ const Movies = props => {
         <div className='movie-list' ref={moviesRef}>
           {movies.results.map(movie => {
             return (
-              <div className='movie-list-item'>
+              <div className='movie-list-item' key={movie.id}>
                 <img
                   src={movie.poster_path}
                   alt=''
